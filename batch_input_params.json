@@ -1,0 +1,13 @@
+{
+    "models": [
+        {
+            "id": 100,
+            "version": "0000",
+            "path": "ants_bees_opt.onnx",
+            "input_params": "input_params.json"
+        }
+    ],
+    "thread_num": 1,
+    "version_check": false
+}
+
