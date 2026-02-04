@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# ONNX 模型文件（如果太大可以選擇性忽略）
+# *.onnx
+# *.onnx.data
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 訓練數據（通常不應該上傳到 git）
+# data/
+
+# 臨時文件
+*.tmp
+*.log
+
