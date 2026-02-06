@@ -1,0 +1,8 @@
+Total [1] models:
+[ants_bees_opt_fixed]
+    id: [100], version: [0x0]
+    size: input [0x31000], output [0x20], buf [0x2b5000], cmd [0x1122c], weight [0x186fc20], fw_code [0xa0]
+    addr: input [0x60000000], output [0x60031000], buf [0x60031020], cmd [0x602e6020], weight [0x602f7250], fw_code [0x61b66e70]
+dram_addr_end [0x61b66f10], total bin size: [0x1880ef0]
+checksum: all_models.bin [0x3752f7d3]
+	0 [0x3752f7d3],

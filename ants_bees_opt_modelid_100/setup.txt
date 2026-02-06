@@ -1,0 +1,28 @@
+cnn_header_info:
+	magic = 2394268770
+	version = 1
+	remaining_models = 1
+	model_type = 0
+	application_type = 0
+	dram_start = 0x60000000
+	dram_size = 2838528
+	input_row = 224
+	input_col = 224
+	input_channel = 3
+	cmd_start = 0x0
+	cmd_size = 70156
+	weight_start = 0x3500000
+	weight_size = 25590816
+	input_start = 0x300000
+	input_size = 200704
+	input_radix = 8
+	output_num = 1
+
+
+
+input_info:
+	(layer_index = 0)
+	type = 0
+	next_cpu = 1
+
+

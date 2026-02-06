@@ -1,0 +1,21 @@
+{
+	"cmd_addr" : "0x000000",
+	"cmd_optimize" : true,
+	"debug_mode" : false,
+	"dedicated_outbuf" : true,
+	"dram_base_addr" : "0x60000000",
+	"dynamic_fp" : false,
+	"dynamic_json_path" : "XXXXX.json",
+	"encryption_flag" : false,
+	"hw_sim" : false,
+	"input_addr" : "0x300000",
+	"input_fmt" : "rgba8",
+	"model_id" : 100,
+	"output_addr" : "0x800000",
+	"output_path" : "ants_bees_opt_modelid_100",
+	"skip_backend" : false,
+	"sram_size" : 512,
+	"version" : 0,
+	"weight_addr" : "0x3500000",
+	"weight_compress" : false
+}

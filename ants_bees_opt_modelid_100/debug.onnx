@@ -1,0 +1,2648 @@
+Kneron Piano2
+main debug:èÈ
+Ïinputinput"Input2‘
+Mozart Hardware Info:
+in_fmt: unknown
+out_fmt: rgba8
+out_shape:  [1x3x224x224], intrp dim: [0,1,2,3] (ch_row_col)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+graph_in, network_in
+
+¯
+inputrelu'npu_fusion_node_node_Conv_753_node_relu"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [7,7]
+Pads: [3,3,3,3]
+Strides: [2,2]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: rgba8
+out_fmt: seq8
+in_shape:  [1x3x224x224], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x112x112], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+¨
+relu
+max_pool2dnode_max_pool2d"MaxPool2˝Kernel shape: [3,3]
+Pad: [1,1,1,1]
+Strides: [2,2]
+Dilations: [1,1]
+storage_order: 0
+ceil_mode: 0
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x64x112x112], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+
+max_pool2drelu_1)npu_fusion_node_node_Conv_755_node_relu_1"NpuFusion [Conv, Relu]2§NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+
+max_pool2dnode_add_KNOPT_dummy_bn_1_o07npu_fusion_node_node_Conv_761_node_add_KNOPT_dummy_bn_1"$NpuFusion [Conv, BatchNormalization]2ÚNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˘
+relu_1relu_2)npu_fusion_node_node_Conv_757_node_relu_2"NpuFusion [Conv, Relu]2£NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+®
+relu_2 relu_2_KNERON_REFORMAT_next_0_64@npu_fusion_node_node_Conv_757_node_relu_2_KNERON_REFORMAT_next_0"Reformat2Øhelper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+Ò
+ relu_2_KNERON_REFORMAT_next_0_64node_add_KNOPT_dummy_bn_0_o0-node_Conv_759_KNOPT_node_add_KNOPT_dummy_bn_0"Conv2˘Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+Ã
+node_add_KNOPT_dummy_bn_0_o0
+node_add_KNOPT_dummy_bn_1_o0relu_3>npu_fusion_node_node_add_node_add_KNOPT_dummy_bn_2_node_relu_3")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ø
+relu_3 relu_3_KNERON_REFORMAT_next_0_85Unpu_fusion_node_node_add_node_add_KNOPT_dummy_bn_2_node_relu_3_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∂
+relu_3node_add_1_KNOPT_dummy_bn_1_o0node_add_1_KNOPT_dummy_bn_1"BatchNormalization2⁄Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ï
+ relu_3_KNERON_REFORMAT_next_0_85relu_4)npu_fusion_node_node_Conv_763_node_relu_4"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˘
+relu_4relu_5)npu_fusion_node_node_Conv_765_node_relu_5"NpuFusion [Conv, Relu]2£NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+®
+relu_5 relu_5_KNERON_REFORMAT_next_0_64@npu_fusion_node_node_Conv_765_node_relu_5_KNERON_REFORMAT_next_0"Reformat2Øhelper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ı
+ relu_5_KNERON_REFORMAT_next_0_64node_add_1_KNOPT_dummy_bn_0_o0/node_Conv_767_KNOPT_node_add_1_KNOPT_dummy_bn_0"Conv2˘Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‘
+node_add_1_KNOPT_dummy_bn_0_o0
+node_add_1_KNOPT_dummy_bn_1_o0relu_6Bnpu_fusion_node_node_add_1_node_add_1_KNOPT_dummy_bn_2_node_relu_6")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+√
+relu_6 relu_6_KNERON_REFORMAT_next_0_89Ynpu_fusion_node_node_add_1_node_add_1_KNOPT_dummy_bn_2_node_relu_6_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∂
+relu_6node_add_2_KNOPT_dummy_bn_1_o0node_add_2_KNOPT_dummy_bn_1"BatchNormalization2⁄Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ï
+ relu_6_KNERON_REFORMAT_next_0_89relu_7)npu_fusion_node_node_Conv_769_node_relu_7"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˘
+relu_7relu_8)npu_fusion_node_node_Conv_771_node_relu_8"NpuFusion [Conv, Relu]2£NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+®
+relu_8 relu_8_KNERON_REFORMAT_next_0_64@npu_fusion_node_node_Conv_771_node_relu_8_KNERON_REFORMAT_next_0"Reformat2Øhelper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ı
+ relu_8_KNERON_REFORMAT_next_0_64node_add_2_KNOPT_dummy_bn_0_o0/node_Conv_773_KNOPT_node_add_2_KNOPT_dummy_bn_0"Conv2˘Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x64x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‘
+node_add_2_KNOPT_dummy_bn_0_o0
+node_add_2_KNOPT_dummy_bn_1_o0relu_9Bnpu_fusion_node_node_add_2_node_add_2_KNOPT_dummy_bn_2_node_relu_9")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+√
+relu_9 relu_9_KNERON_REFORMAT_next_1_89Ynpu_fusion_node_node_add_2_node_add_2_KNOPT_dummy_bn_2_node_relu_9_KNERON_REFORMAT_next_1"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ò
+ relu_9_KNERON_REFORMAT_next_1_89relu_10*npu_fusion_node_node_Conv_775_node_relu_10"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ô
+ relu_9_KNERON_REFORMAT_next_1_89node_add_3_KNOPT_dummy_bn_1_o09npu_fusion_node_node_Conv_781_node_add_3_KNOPT_dummy_bn_1"$NpuFusion [Conv, BatchNormalization]2ÛNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [2,2]
+Weight number: 2
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+relu_10relu_11*npu_fusion_node_node_Conv_777_node_relu_11"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [2,2]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x128x56x56], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+≠
+relu_11!relu_11_KNERON_REFORMAT_next_0_65Anpu_fusion_node_node_Conv_777_node_relu_11_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+˜
+!relu_11_KNERON_REFORMAT_next_0_65node_add_3_KNOPT_dummy_bn_0_o0/node_Conv_779_KNOPT_node_add_3_KNOPT_dummy_bn_0"Conv2˙Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+÷
+node_add_3_KNOPT_dummy_bn_0_o0
+node_add_3_KNOPT_dummy_bn_1_o0relu_12Cnpu_fusion_node_node_add_3_node_add_3_KNOPT_dummy_bn_2_node_relu_12")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+∆
+relu_12!relu_12_KNERON_REFORMAT_next_0_90Znpu_fusion_node_node_add_3_node_add_3_KNOPT_dummy_bn_2_node_relu_12_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∑
+relu_12node_add_4_KNOPT_dummy_bn_1_o0node_add_4_KNOPT_dummy_bn_1"BatchNormalization2⁄Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ô
+!relu_12_KNERON_REFORMAT_next_0_90relu_13*npu_fusion_node_node_Conv_783_node_relu_13"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+relu_13relu_14*npu_fusion_node_node_Conv_785_node_relu_14"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+≠
+relu_14!relu_14_KNERON_REFORMAT_next_0_65Anpu_fusion_node_node_Conv_785_node_relu_14_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+˜
+!relu_14_KNERON_REFORMAT_next_0_65node_add_4_KNOPT_dummy_bn_0_o0/node_Conv_787_KNOPT_node_add_4_KNOPT_dummy_bn_0"Conv2˙Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+÷
+node_add_4_KNOPT_dummy_bn_0_o0
+node_add_4_KNOPT_dummy_bn_1_o0relu_15Cnpu_fusion_node_node_add_4_node_add_4_KNOPT_dummy_bn_2_node_relu_15")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+∆
+relu_15!relu_15_KNERON_REFORMAT_next_0_90Znpu_fusion_node_node_add_4_node_add_4_KNOPT_dummy_bn_2_node_relu_15_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∑
+relu_15node_add_5_KNOPT_dummy_bn_1_o0node_add_5_KNOPT_dummy_bn_1"BatchNormalization2⁄Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ô
+!relu_15_KNERON_REFORMAT_next_0_90relu_16*npu_fusion_node_node_Conv_789_node_relu_16"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+relu_16relu_17*npu_fusion_node_node_Conv_791_node_relu_17"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+≠
+relu_17!relu_17_KNERON_REFORMAT_next_0_65Anpu_fusion_node_node_Conv_791_node_relu_17_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+˜
+!relu_17_KNERON_REFORMAT_next_0_65node_add_5_KNOPT_dummy_bn_0_o0/node_Conv_793_KNOPT_node_add_5_KNOPT_dummy_bn_0"Conv2˙Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+÷
+node_add_5_KNOPT_dummy_bn_0_o0
+node_add_5_KNOPT_dummy_bn_1_o0relu_18Cnpu_fusion_node_node_add_5_node_add_5_KNOPT_dummy_bn_2_node_relu_18")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+∆
+relu_18!relu_18_KNERON_REFORMAT_next_0_90Znpu_fusion_node_node_add_5_node_add_5_KNOPT_dummy_bn_2_node_relu_18_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∑
+relu_18node_add_6_KNOPT_dummy_bn_1_o0node_add_6_KNOPT_dummy_bn_1"BatchNormalization2⁄Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ô
+!relu_18_KNERON_REFORMAT_next_0_90relu_19*npu_fusion_node_node_Conv_795_node_relu_19"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+relu_19relu_20*npu_fusion_node_node_Conv_797_node_relu_20"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+≠
+relu_20!relu_20_KNERON_REFORMAT_next_0_65Anpu_fusion_node_node_Conv_797_node_relu_20_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+˜
+!relu_20_KNERON_REFORMAT_next_0_65node_add_6_KNOPT_dummy_bn_0_o0/node_Conv_799_KNOPT_node_add_6_KNOPT_dummy_bn_0"Conv2˙Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x128x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+÷
+node_add_6_KNOPT_dummy_bn_0_o0
+node_add_6_KNOPT_dummy_bn_1_o0relu_21Cnpu_fusion_node_node_add_6_node_add_6_KNOPT_dummy_bn_2_node_relu_21")NpuFusion [Add, BatchNormalization, Relu]2öNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+∆
+relu_21!relu_21_KNERON_REFORMAT_next_1_90Znpu_fusion_node_node_add_6_node_add_6_KNOPT_dummy_bn_2_node_relu_21_KNERON_REFORMAT_next_1"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ô
+!relu_21_KNERON_REFORMAT_next_1_90relu_22*npu_fusion_node_node_Conv_801_node_relu_22"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+õ
+!relu_21_KNERON_REFORMAT_next_1_90node_add_7_KNOPT_dummy_bn_1_o09npu_fusion_node_node_Conv_807_node_add_7_KNOPT_dummy_bn_1"$NpuFusion [Conv, BatchNormalization]2ÙNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [2,2]
+Weight number: 2
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x512x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˛
+relu_22relu_23*npu_fusion_node_node_Conv_803_node_relu_23"NpuFusion [Conv, Relu]2•NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [2,2]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: seq8
+in_shape:  [1x256x28x28], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+≠
+relu_23!relu_23_KNERON_REFORMAT_next_0_65Anpu_fusion_node_node_Conv_803_node_relu_23_KNERON_REFORMAT_next_0"Reformat2±helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+¯
+!relu_23_KNERON_REFORMAT_next_0_65node_add_7_KNOPT_dummy_bn_0_o0/node_Conv_805_KNOPT_node_add_7_KNOPT_dummy_bn_0"Conv2˚Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+Ÿ
+node_add_7_KNOPT_dummy_bn_0_o0
+node_add_7_KNOPT_dummy_bn_1_o0relu_24Cnpu_fusion_node_node_add_7_node_add_7_KNOPT_dummy_bn_2_node_relu_24")NpuFusion [Add, BatchNormalization, Relu]2ùNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+»
+relu_24!relu_24_KNERON_REFORMAT_next_0_90Znpu_fusion_node_node_add_7_node_add_7_KNOPT_dummy_bn_2_node_relu_24_KNERON_REFORMAT_next_0"Reformat2≥helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+π
+relu_24node_add_8_KNOPT_dummy_bn_1_o0node_add_8_KNOPT_dummy_bn_1"BatchNormalization2‹Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ö
+!relu_24_KNERON_REFORMAT_next_0_90relu_25*npu_fusion_node_node_Conv_809_node_relu_25"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ˇ
+relu_25relu_26*npu_fusion_node_node_Conv_811_node_relu_26"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ﬁ
+relu_26node_add_8_KNOPT_dummy_bn_0_o0/node_Conv_813_KNOPT_node_add_8_KNOPT_dummy_bn_0"Conv2˚Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+Ÿ
+node_add_8_KNOPT_dummy_bn_0_o0
+node_add_8_KNOPT_dummy_bn_1_o0relu_27Cnpu_fusion_node_node_add_8_node_add_8_KNOPT_dummy_bn_2_node_relu_27")NpuFusion [Add, BatchNormalization, Relu]2ùNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+»
+relu_27!relu_27_KNERON_REFORMAT_next_0_90Znpu_fusion_node_node_add_8_node_add_8_KNOPT_dummy_bn_2_node_relu_27_KNERON_REFORMAT_next_0"Reformat2≥helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+π
+relu_27node_add_9_KNOPT_dummy_bn_1_o0node_add_9_KNOPT_dummy_bn_1"BatchNormalization2‹Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ö
+!relu_27_KNERON_REFORMAT_next_0_90relu_28*npu_fusion_node_node_Conv_815_node_relu_28"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ˇ
+relu_28relu_29*npu_fusion_node_node_Conv_817_node_relu_29"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ﬁ
+relu_29node_add_9_KNOPT_dummy_bn_0_o0/node_Conv_819_KNOPT_node_add_9_KNOPT_dummy_bn_0"Conv2˚Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+Ÿ
+node_add_9_KNOPT_dummy_bn_0_o0
+node_add_9_KNOPT_dummy_bn_1_o0relu_30Cnpu_fusion_node_node_add_9_node_add_9_KNOPT_dummy_bn_2_node_relu_30")NpuFusion [Add, BatchNormalization, Relu]2ùNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+»
+relu_30!relu_30_KNERON_REFORMAT_next_0_90Znpu_fusion_node_node_add_9_node_add_9_KNOPT_dummy_bn_2_node_relu_30_KNERON_REFORMAT_next_0"Reformat2≥helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ª
+relu_30node_add_10_KNOPT_dummy_bn_1_o0node_add_10_KNOPT_dummy_bn_1"BatchNormalization2‹Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ö
+!relu_30_KNERON_REFORMAT_next_0_90relu_31*npu_fusion_node_node_Conv_821_node_relu_31"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ˇ
+relu_31relu_32*npu_fusion_node_node_Conv_823_node_relu_32"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‡
+relu_32node_add_10_KNOPT_dummy_bn_0_o00node_Conv_825_KNOPT_node_add_10_KNOPT_dummy_bn_0"Conv2˚Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+›
+node_add_10_KNOPT_dummy_bn_0_o0
+node_add_10_KNOPT_dummy_bn_1_o0relu_33Enpu_fusion_node_node_add_10_node_add_10_KNOPT_dummy_bn_2_node_relu_33")NpuFusion [Add, BatchNormalization, Relu]2ùNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ 
+relu_33!relu_33_KNERON_REFORMAT_next_0_92\npu_fusion_node_node_add_10_node_add_10_KNOPT_dummy_bn_2_node_relu_33_KNERON_REFORMAT_next_0"Reformat2≥helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ª
+relu_33node_add_11_KNOPT_dummy_bn_1_o0node_add_11_KNOPT_dummy_bn_1"BatchNormalization2‹Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ö
+!relu_33_KNERON_REFORMAT_next_0_92relu_34*npu_fusion_node_node_Conv_827_node_relu_34"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ˇ
+relu_34relu_35*npu_fusion_node_node_Conv_829_node_relu_35"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‡
+relu_35node_add_11_KNOPT_dummy_bn_0_o00node_Conv_831_KNOPT_node_add_11_KNOPT_dummy_bn_0"Conv2˚Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+›
+node_add_11_KNOPT_dummy_bn_0_o0
+node_add_11_KNOPT_dummy_bn_1_o0relu_36Enpu_fusion_node_node_add_11_node_add_11_KNOPT_dummy_bn_2_node_relu_36")NpuFusion [Add, BatchNormalization, Relu]2ùNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ 
+relu_36!relu_36_KNERON_REFORMAT_next_0_92\npu_fusion_node_node_add_11_node_add_11_KNOPT_dummy_bn_2_node_relu_36_KNERON_REFORMAT_next_0"Reformat2≥helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ª
+relu_36node_add_12_KNOPT_dummy_bn_1_o0node_add_12_KNOPT_dummy_bn_1"BatchNormalization2‹Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ö
+!relu_36_KNERON_REFORMAT_next_0_92relu_37*npu_fusion_node_node_Conv_833_node_relu_37"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ˇ
+relu_37relu_38*npu_fusion_node_node_Conv_835_node_relu_38"NpuFusion [Conv, Relu]2¶NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‡
+relu_38node_add_12_KNOPT_dummy_bn_0_o00node_Conv_837_KNOPT_node_add_12_KNOPT_dummy_bn_0"Conv2˚Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x256x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+›
+node_add_12_KNOPT_dummy_bn_0_o0
+node_add_12_KNOPT_dummy_bn_1_o0relu_39Enpu_fusion_node_node_add_12_node_add_12_KNOPT_dummy_bn_2_node_relu_39")NpuFusion [Add, BatchNormalization, Relu]2ùNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ 
+relu_39!relu_39_KNERON_REFORMAT_next_1_92\npu_fusion_node_node_add_12_node_add_12_KNOPT_dummy_bn_2_node_relu_39_KNERON_REFORMAT_next_1"Reformat2≥helper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ö
+!relu_39_KNERON_REFORMAT_next_1_92relu_40*npu_fusion_node_node_Conv_839_node_relu_40"NpuFusion [Conv, Relu]2ßNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ú
+!relu_39_KNERON_REFORMAT_next_1_92node_add_13_KNOPT_dummy_bn_1_o0:npu_fusion_node_node_Conv_845_node_add_13_KNOPT_dummy_bn_1"$NpuFusion [Conv, BatchNormalization]2ÛNpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [2,2]
+Weight number: 2
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x1024x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˝
+relu_40relu_41*npu_fusion_node_node_Conv_841_node_relu_41"NpuFusion [Conv, Relu]2§NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [2,2]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x512x14x14], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‹
+relu_41node_add_13_KNOPT_dummy_bn_0_o00node_Conv_843_KNOPT_node_add_13_KNOPT_dummy_bn_0"Conv2˜Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+◊
+node_add_13_KNOPT_dummy_bn_0_o0
+node_add_13_KNOPT_dummy_bn_1_o0relu_42Enpu_fusion_node_node_add_13_node_add_13_KNOPT_dummy_bn_2_node_relu_42")NpuFusion [Add, BatchNormalization, Relu]2óNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+∆
+relu_42!relu_42_KNERON_REFORMAT_next_0_92\npu_fusion_node_node_add_13_node_add_13_KNOPT_dummy_bn_2_node_relu_42_KNERON_REFORMAT_next_0"Reformat2Øhelper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∑
+relu_42node_add_14_KNOPT_dummy_bn_1_o0node_add_14_KNOPT_dummy_bn_1"BatchNormalization2ÿEpsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ñ
+!relu_42_KNERON_REFORMAT_next_0_92relu_43*npu_fusion_node_node_Conv_847_node_relu_43"NpuFusion [Conv, Relu]2£NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˚
+relu_43relu_44*npu_fusion_node_node_Conv_849_node_relu_44"NpuFusion [Conv, Relu]2¢NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‹
+relu_44node_add_14_KNOPT_dummy_bn_0_o00node_Conv_851_KNOPT_node_add_14_KNOPT_dummy_bn_0"Conv2˜Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+◊
+node_add_14_KNOPT_dummy_bn_0_o0
+node_add_14_KNOPT_dummy_bn_1_o0relu_45Enpu_fusion_node_node_add_14_node_add_14_KNOPT_dummy_bn_2_node_relu_45")NpuFusion [Add, BatchNormalization, Relu]2óNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+∆
+relu_45!relu_45_KNERON_REFORMAT_next_0_92\npu_fusion_node_node_add_14_node_add_14_KNOPT_dummy_bn_2_node_relu_45_KNERON_REFORMAT_next_0"Reformat2Øhelper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+∑
+relu_45node_add_15_KNOPT_dummy_bn_1_o0node_add_15_KNOPT_dummy_bn_1"BatchNormalization2ÿEpsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+ñ
+!relu_45_KNERON_REFORMAT_next_0_92relu_46*npu_fusion_node_node_Conv_853_node_relu_46"NpuFusion [Conv, Relu]2£NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: col8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˚
+relu_46relu_47*npu_fusion_node_node_Conv_855_node_relu_47"NpuFusion [Conv, Relu]2¢NpuFusionNode:
+op_type: Conv
+Dilations: [1,1]
+Group: 1
+Kernel shape: [3,3]
+Pads: [1,1,1,1]
+Strides: [1,1]
+Weight number: 2
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: col8
+out_fmt: chnl8
+in_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+‹
+relu_47node_add_15_KNOPT_dummy_bn_0_o00node_Conv_857_KNOPT_node_add_15_KNOPT_dummy_bn_0"Conv2˜Dilations: [1,1]
+Group: 1
+Kernel shape: [1,1]
+Pads: [0,0,0,0]
+Strides: [1,1]
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x512x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+◊
+node_add_15_KNOPT_dummy_bn_0_o0
+node_add_15_KNOPT_dummy_bn_1_o0relu_48Enpu_fusion_node_node_add_15_node_add_15_KNOPT_dummy_bn_2_node_relu_48")NpuFusion [Add, BatchNormalization, Relu]2óNpuFusionNode:
+op_type: Add
+
+op_type: BatchNormalization
+Epsilon: 1e-05
+Momentum: 0.9
+Training mode: 0
+Weight number: 4
+
+op_type: Relu
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape 1: [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+in_shape 2: [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in_0: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_in_1: bw(8), rdx(8), scl(0.000000,0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+¥
+relu_48meancpu_fusion_node_node_mean"CpuFusion [ReduceMean]2ÔCPU Fusion Node:
+op_type: ReduceMean
+axes: [3,2]
+keep_dims: 1
+noop_with_empty_axes: 0
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: seq8
+in_shape:  [1x2048x7x7], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x1x1], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+î
+meanmean_KNERON_REFORMAT_next_0_480cpu_fusion_node_node_mean_KNERON_REFORMAT_next_0"Reformat2Øhelper type: reformat
+
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: chnl8
+in_shape:  [1x2048x1x1], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2048x1x1], intrp dim: [0,1,2,3] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(8), rdx(8), scl(0.000000)
+
+ô
+mean_KNERON_REFORMAT_next_0_48outputnode_linear"Gemm2€Alpha: 1
+Beta:1
+Broadcast: 0
+TransA: 0
+TransB: 1
+Weight number: 2
+
+Mozart Hardware Info:
+in_fmt: chnl8
+out_fmt: seq8
+in_shape:  [1x2048x1x1], intrp dim: [0,1,2,3] (ch_row_col)
+out_shape:  [1x2x1x1], intrp dim: [-1,1,0,-1] (row_ch_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_out: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+
+˜
+outputOutputNode_output"Output2—
+Mozart Hardware Info:
+in_fmt: seq8
+out_fmt: unknown
+in_shape:  [1x2x1x1], intrp dim: [0,1,-1,-1] (ch_row_col)
+fp_in: bw(8), rdx(8), scl(0.000000)
+fp_psum: bw(16), rdx(8), scl(0.000000)
+graph_out, network_out
+Debug GraphZ!
+input
+
+
+
+‡
+‡b
+output
+
+
+j
+relu
+
+
+@
+p
+pj$
+
+max_pool2d
+
+
+@
+8
+8j 
+relu_1
+
+
+@
+8
+8j7
+node_add_KNOPT_dummy_bn_1_o0
+
+
+Ä
+8
+8j 
+relu_2
+
+
+@
+8
+8j:
+ relu_2_KNERON_REFORMAT_next_0_64
+
+
+@
+8
+8j7
+node_add_KNOPT_dummy_bn_0_o0
+
+
+Ä
+8
+8j!
+relu_3
+
+
+Ä
+8
+8j;
+ relu_3_KNERON_REFORMAT_next_0_85
+
+
+Ä
+8
+8j9
+node_add_1_KNOPT_dummy_bn_1_o0
+
+
+Ä
+8
+8j 
+relu_4
+
+
+@
+8
+8j 
+relu_5
+
+
+@
+8
+8j:
+ relu_5_KNERON_REFORMAT_next_0_64
+
+
+@
+8
+8j9
+node_add_1_KNOPT_dummy_bn_0_o0
+
+
+Ä
+8
+8j!
+relu_6
+
+
+Ä
+8
+8j;
+ relu_6_KNERON_REFORMAT_next_0_89
+
+
+Ä
+8
+8j9
+node_add_2_KNOPT_dummy_bn_1_o0
+
+
+Ä
+8
+8j 
+relu_7
+
+
+@
+8
+8j 
+relu_8
+
+
+@
+8
+8j:
+ relu_8_KNERON_REFORMAT_next_0_64
+
+
+@
+8
+8j9
+node_add_2_KNOPT_dummy_bn_0_o0
+
+
+Ä
+8
+8j!
+relu_9
+
+
+Ä
+8
+8j;
+ relu_9_KNERON_REFORMAT_next_1_89
+
+
+Ä
+8
+8j"
+relu_10
+
+
+Ä
+8
+8j9
+node_add_3_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_11
+
+
+Ä
+
+j<
+!relu_11_KNERON_REFORMAT_next_0_65
+
+
+Ä
+
+j9
+node_add_3_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_12
+
+
+Ä
+
+j<
+!relu_12_KNERON_REFORMAT_next_0_90
+
+
+Ä
+
+j9
+node_add_4_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_13
+
+
+Ä
+
+j"
+relu_14
+
+
+Ä
+
+j<
+!relu_14_KNERON_REFORMAT_next_0_65
+
+
+Ä
+
+j9
+node_add_4_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_15
+
+
+Ä
+
+j<
+!relu_15_KNERON_REFORMAT_next_0_90
+
+
+Ä
+
+j9
+node_add_5_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_16
+
+
+Ä
+
+j"
+relu_17
+
+
+Ä
+
+j<
+!relu_17_KNERON_REFORMAT_next_0_65
+
+
+Ä
+
+j9
+node_add_5_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_18
+
+
+Ä
+
+j<
+!relu_18_KNERON_REFORMAT_next_0_90
+
+
+Ä
+
+j9
+node_add_6_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_19
+
+
+Ä
+
+j"
+relu_20
+
+
+Ä
+
+j<
+!relu_20_KNERON_REFORMAT_next_0_65
+
+
+Ä
+
+j9
+node_add_6_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_21
+
+
+Ä
+
+j<
+!relu_21_KNERON_REFORMAT_next_1_90
+
+
+Ä
+
+j"
+relu_22
+
+
+Ä
+
+j9
+node_add_7_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_23
+
+
+Ä
+
+j<
+!relu_23_KNERON_REFORMAT_next_0_65
+
+
+Ä
+
+j9
+node_add_7_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_24
+
+
+Ä
+
+j<
+!relu_24_KNERON_REFORMAT_next_0_90
+
+
+Ä
+
+j9
+node_add_8_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_25
+
+
+Ä
+
+j"
+relu_26
+
+
+Ä
+
+j9
+node_add_8_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_27
+
+
+Ä
+
+j<
+!relu_27_KNERON_REFORMAT_next_0_90
+
+
+Ä
+
+j9
+node_add_9_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_28
+
+
+Ä
+
+j"
+relu_29
+
+
+Ä
+
+j9
+node_add_9_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_30
+
+
+Ä
+
+j<
+!relu_30_KNERON_REFORMAT_next_0_90
+
+
+Ä
+
+j:
+node_add_10_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_31
+
+
+Ä
+
+j"
+relu_32
+
+
+Ä
+
+j:
+node_add_10_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_33
+
+
+Ä
+
+j<
+!relu_33_KNERON_REFORMAT_next_0_92
+
+
+Ä
+
+j:
+node_add_11_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_34
+
+
+Ä
+
+j"
+relu_35
+
+
+Ä
+
+j:
+node_add_11_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_36
+
+
+Ä
+
+j<
+!relu_36_KNERON_REFORMAT_next_0_92
+
+
+Ä
+
+j:
+node_add_12_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_37
+
+
+Ä
+
+j"
+relu_38
+
+
+Ä
+
+j:
+node_add_12_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_39
+
+
+Ä
+
+j<
+!relu_39_KNERON_REFORMAT_next_1_92
+
+
+Ä
+
+j"
+relu_40
+
+
+Ä
+
+j:
+node_add_13_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_41
+
+
+Ä
+
+j:
+node_add_13_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_42
+
+
+Ä
+
+j<
+!relu_42_KNERON_REFORMAT_next_0_92
+
+
+Ä
+
+j:
+node_add_14_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_43
+
+
+Ä
+
+j"
+relu_44
+
+
+Ä
+
+j:
+node_add_14_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_45
+
+
+Ä
+
+j<
+!relu_45_KNERON_REFORMAT_next_0_92
+
+
+Ä
+
+j:
+node_add_15_KNOPT_dummy_bn_1_o0
+
+
+Ä
+
+j"
+relu_46
+
+
+Ä
+
+j"
+relu_47
+
+
+Ä
+
+j:
+node_add_15_KNOPT_dummy_bn_0_o0
+
+
+Ä
+
+j"
+relu_48
+
+
+Ä
+
+j
+mean
+
+
+Ä
+
+j9
+mean_KNERON_REFORMAT_next_0_48
+
+
+Ä
+
+j
+output
+
+
+
