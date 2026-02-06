@@ -1,6 +1,6 @@
 {
     "model_info": {
-        "input_onnx_file": "ants_bees_opt.onnx",
+        "input_onnx_file": "ants_bees_merged.onnx",
         "model_inputs": [{
             "model_input_name": "input",
             "input_image_folder": "imgs"
@@ -9,20 +9,16 @@
         "outlier": 0.999
     },
     "preprocess": {
-        "img_preprocess_method": "normalize",
+        "img_preprocess_method": "kneron",
         "img_channel": "RGB",
         "radix": 8,
         "keep_aspect_ratio": false,
-        "pad_mode": 0,
+        "pad_mode": 1,
         "p_crop": {
             "crop_x": 0,
             "crop_y": 0,
             "crop_w": 0,
             "crop_h": 0
-        },
-        "normalize": {
-            "mean": [0.485, 0.456, 0.406],
-            "std": [0.229, 0.224, 0.225]
         }
     }
 }
