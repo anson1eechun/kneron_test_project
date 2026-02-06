@@ -14,7 +14,7 @@ from utils.load_config import ModelConfig
 def main():
     # 設定路徑
     input_params_path = "/docker_mount/input_params.json"
-    model_path = "/docker_mount/ants_bees_merged.onnx"
+    model_path = "/docker_mount/ants_bees_opt.onnx"
     
     print("=" * 60)
     print("開始執行定點分析 (FP Analysis)")

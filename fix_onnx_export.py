@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 from torchvision import models
 import onnx
+import os
 
 # 載入訓練好的模型權重（如果有的話）
 # 這裡我們重新創建模型結構並導出
@@ -15,18 +16,36 @@ print("重新導出兼容的 ONNX 模型")
 print("=" * 60)
 
 # 創建模型結構
-model = models.resnet50(pretrained=False)
+print("正在創建 ResNet50 模型結構...")
+try:
+    model = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V1)
+except AttributeError:
+    model = models.resnet50(pretrained=True)
+
 model.fc = nn.Linear(model.fc.in_features, 2)
 
 # 載入權重（如果之前有保存）
-try:
-    checkpoint = torch.load('ants_bees_model.pth', map_location='cpu')
-    model.load_state_dict(checkpoint)
-    print("✓ 已載入訓練好的權重")
-except:
-    print("⚠ 未找到權重文件，將使用預訓練模型結構")
-    # 如果沒有權重，至少確保模型結構正確
-    pass
+weight_files = ['ants_bees_model.pth', 'model.pth', 'best_model.pth']
+weight_loaded = False
+
+for weight_file in weight_files:
+    try:
+        if os.path.exists(weight_file):
+            checkpoint = torch.load(weight_file, map_location='cpu')
+            if isinstance(checkpoint, dict) and 'state_dict' in checkpoint:
+                model.load_state_dict(checkpoint['state_dict'])
+            else:
+                model.load_state_dict(checkpoint)
+            print(f"[OK] 已載入訓練好的權重: {weight_file}")
+            weight_loaded = True
+            break
+    except Exception as e:
+        continue
+
+if not weight_loaded:
+    print("[WARNING] 未找到權重文件，將使用 ImageNet 預訓練權重")
+    print("  注意：這將使用預訓練權重而非訓練好的螞蟻/蜜蜂分類權重")
+    print("  建議：先運行 train_resnet50.py 訓練模型")
 
 model.eval()
 
@@ -52,7 +71,7 @@ torch.onnx.export(
     verbose=False
 )
 
-print(f"✓ ONNX 模型已導出: {output_file}")
+print(f"[OK] ONNX 模型已導出: {output_file}")
 
 # 檢查導出的模型
 print("\n檢查導出的模型...")
@@ -65,7 +84,7 @@ try:
     
     # 驗證模型
     onnx.checker.check_model(model_onnx)
-    print("  ✓ 模型驗證通過")
+    print("  [OK] 模型驗證通過")
 except Exception as e:
     print(f"  ⚠ 模型檢查警告: {e}")
 

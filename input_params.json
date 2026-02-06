@@ -1,17 +1,17 @@
 {
     "model_info": {
-        "input_onnx_file": "ants_bees_merged.onnx",
+        "input_onnx_file": "ants_bees_opt.onnx",
         "model_inputs": [{
             "model_input_name": "input",
             "input_image_folder": "imgs"
         }],
         "quantize_mode": "default",
-        "outlier": 0.999
+        "outlier": 0.99
     },
     "preprocess": {
         "img_preprocess_method": "kneron",
         "img_channel": "RGB",
-        "radix": 8,
+        "radix": 7,
         "keep_aspect_ratio": false,
         "pad_mode": 1,
         "p_crop": {
